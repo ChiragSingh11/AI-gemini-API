@@ -15,7 +15,7 @@ app.post("/generate-content", async (req, res) => {
 
   try {
     // Replace this with your actual API key
-    const genAI = new GoogleGenerativeAI("AIzaSyAYiBwbzSWvavwiWnOmX8eWMpDNNND6nzY");
+    const genAI = new GoogleGenerativeAI("Your API Key");
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     const result = await model.generateContent(prompt);
