@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google API Example</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+
+    <h1 class="head">AI Content Generation</h1>
+    <div id="output" class="output">Your answer will be shown here</div>
+    <div class="other">
+
+      <input type="text" id="prompt" class="generate-text-area" placeholder="Enter your question" />
+      <button onclick="generateContent()" class="generate-text-btn">Generate Content</button>
+    </div>
+    
+  </main>
+  <script>
+    async function generateContent() {
+      // Show loading message
+      document.getElementById('output').innerText = 'Loading...';
+
+      const prompt = document.getElementById('prompt').value;
+      const response = await fetch('http://localhost:3001/generate-content', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ prompt })
+      });
+
+      const data = await response.json();
+      
+      // Update the output area with the generated content or error message
+      document.getElementById('output').innerText = data.content || 'Error generating content';
+    }
+  </script>
+</body>
+</html>

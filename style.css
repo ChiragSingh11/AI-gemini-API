@@ -1,0 +1,206 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #121212;
+    color: #E0E0E0;
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5vh;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.head {
+    margin-top: 10vh;
+    text-align: center;
+    font-size: 3em;
+    color: #00C4B4;
+    text-shadow: 2px 2px 6px rgba(0, 196, 180, 0.4);
+    animation: fadeInUp 1s ease-out;
+}
+.generate-text-area,
+.generate-text-btn {
+    display: block; /* Ensure both elements are on separate lines */
+    margin: 10px 0;  /* Add space between the input and the button */
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.other {
+    margin-top: 20px;
+    animation: fadeInUp 1s ease-out;
+    animation-delay: 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.generate-text-btn {
+
+    padding: 12px 30px;
+    width: 25vw;
+    height: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #6200EE;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(0);
+}
+
+.generate-text-btn:hover {
+    background-color: #3700B3;
+    transform: translateY(-4px);
+}
+
+.generate-text-btn:active {
+    background-color: #6200EE;
+    transform: translateY(2px);
+}
+
+.generate-text-btn:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(98, 0, 238, 0.6);
+}
+
+@media (max-width: 768px) {
+    .generate-text-btn {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+}
+
+.generate-text-area {
+    width: 25vw;
+    height: 40px;
+    padding: 10px 15px;
+    font-size: 14px;
+    border: 2px solid #6200EE;
+    border-radius: 8px;
+    resize: none;
+    background-color: #333;
+    color: #E0E0E0;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: inline-block; /* Ensures it stays in the same line */
+}
+
+.generate-text-area:focus {
+    width: 30vw; /* Keep the same width when focused */
+    height: 60px;
+    border-color: #03DAC5;
+    background-color: #444;
+    box-shadow: 0 0 10px rgba(3, 218, 197, 0.4);
+    outline: none;
+}
+
+.generate-text-area::placeholder {
+    color: #9E9E9E;
+    font-style: italic;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.generate-text-area:focus::placeholder {
+    opacity: 0;
+}
+
+.output {
+    height: 50vh;
+    width: 30vw;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+    background-color: #1D1D1D;
+    color: #E0E0E0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    font-size: 18px;
+    animation: slideIn 1s ease-out;
+    text-align: center; /* Center text */
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.output::-webkit-scrollbar {
+    width: 8px;
+}
+
+.output::-webkit-scrollbar-thumb {
+    background-color: #6200EE;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.output::-webkit-scrollbar-thumb:hover {
+    background-color: #3700B3;
+}
+
+@media (max-width: 768px) {
+    .output {
+        width: 80vw;
+        height: 40vh;
+    }
+    .generate-text-area {
+        width: 100%; /* Ensures full width on small devices */
+        font-size: 12px;
+    }
+}
+@media (max-width: 1000px) {
+    .generate-text-btn{
+        width: 50vw; 
+    }
+    .generate-text-area {
+        width: 50vw; 
+    }
+    .generate-text-area:focus {
+        width: 55vw; 
+    }
+}
+@media (max-width: 600px) {
+    .generate-text-btn{
+        width: 80vw; 
+    }
+    .generate-text-area {
+        width: 80vw; 
+    }
+    .generate-text-area:focus {
+        width: 85vw; 
+    }
+}
